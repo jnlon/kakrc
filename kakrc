@@ -2,11 +2,11 @@
 set global ui_options terminal_assistant=none
 
 # yank
-map global user y -docstring 'Yank selection to clipboard' '<a-|>xclip -i -selection clipboard<ret>'
+map global user y -docstring 'Yank selection to clipboard' '<a-|>pbcopy<ret>'
 # paste
-map global user p -docstring 'Paste (After)' '<a-!>xclip -out -selection clipboard<ret>'
-map global user P -docstring 'Paste (Before)' '!xclip -out -selection clipboard<ret>'
-map global user R -docstring 'Replace' '|xclip -out -selection clipboard<ret>'
+map global user p -docstring 'Paste (After)' '<a-!>pbpaste<ret>'
+map global user P -docstring 'Paste (Before)' '!pbpaste<ret>'
+map global user R -docstring 'Replace' '|pbpaste<ret>'
 
 # search
 map global normal '/' '/(?i)'
