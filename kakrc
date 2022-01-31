@@ -7,6 +7,12 @@ map global user y -docstring 'Yank selection to clipboard' '<a-|>pbcopy<ret>'
 map global user p -docstring 'Paste (After)' '<a-!>pbpaste<ret>'
 map global user P -docstring 'Paste (Before)' '!pbpaste<ret>'
 map global user R -docstring 'Replace' '|pbpaste<ret>'
+# buffers
+map global goto n -docstring 'buffer next' '<esc>:bn<ret>'
+map global goto p -docstring 'buffer prev' '<esc>:bp<ret>'
+map global goto <tab> -docstring 'buffer list' '<esc>:buffer '
+map global goto d -docstring 'buffer delete' '<esc>:delete-buffer<ret>'
+map global user f -docstring 'find files to buffer' '<a-!>find . -type f | sort<ret>'
 
 # search
 map global normal '/' '/(?i)'
