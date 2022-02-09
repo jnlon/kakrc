@@ -1,5 +1,5 @@
 # general
-set global ui_options terminal_assistant=none
+set global ui_options terminal_assistant=none terminal_enable_mouse=no
 
 # yank
 map global user y -docstring 'Yank selection to clipboard' '<a-|>xclip -i -selection clipboard<ret>'
