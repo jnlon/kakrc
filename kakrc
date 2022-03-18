@@ -1,5 +1,6 @@
 # general
 set global ui_options terminal_assistant=none terminal_enable_mouse=no
+set global indentwidth 0
 
 # buffers
 map global goto n -docstring 'buffer next' '<esc>:bn<ret>'
@@ -18,18 +19,18 @@ map global view u -docstring 'scroll up half page' '<esc><c-u>gcV'
 map global view d -docstring 'scroll down half page' '<esc><c-d>gcV'
 
 evaluate-commands %sh{
-    if [ `uname` = 'Darwin' ]; then
-        COPY="pbcopy"
-        PASTE="pbpaste"
-    elif [ `uname` = 'Linux' -a $XDG_SESSION_TYPE = 'wayland' ]; then
-        COPY="wl-copy"
-        PASTE="wl-paste"
-    else
-        COPY="xclip -out -selection clipboard"
-        PASTE="xclip -in -selection clipboard"
-    fi
+	if [ `uname` = 'Darwin' ]; then
+		COPY="pbcopy"
+		PASTE="pbpaste"
+	elif [ `uname` = 'Linux' -a $XDG_SESSION_TYPE = 'wayland' ]; then
+		COPY="wl-copy"
+		PASTE="wl-paste"
+	else
+		COPY="xclip -out -selection clipboard"
+		PASTE="xclip -in -selection clipboard"
+	fi
 
-    printf "map global user y -docstring 'Yank selection to clipboard' '<a-|>%s<ret>'\n" "$COPY"
-    printf "map global user p -docstring 'Paste (After)' '<a-!>%s<ret>'\n" "$PASTE"
-    printf "map global user P -docstring 'Paste (Before)' '!%s<ret>'\n" "$PASTE"
+	printf "map global user y -docstring 'Yank selection to clipboard' '<a-|>%s<ret>'\n" "$COPY"
+	printf "map global user p -docstring 'Paste (After)' '<a-!>%s<ret>'\n" "$PASTE"
+	printf "map global user P -docstring 'Paste (Before)' '!%s<ret>'\n" "$PASTE"
 }
