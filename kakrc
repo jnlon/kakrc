@@ -1,6 +1,8 @@
 # general
 set global ui_options terminal_assistant=none terminal_enable_mouse=no
+set global ui_options ncurses_assistant=none ncurses_enable_mouse=no
 set global indentwidth 0
+
 
 # buffers
 map global goto n -docstring 'buffer next' '<esc>:bn<ret>'
